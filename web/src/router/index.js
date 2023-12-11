@@ -35,14 +35,14 @@ const routes = [
     component:UserBotIndexView,
   },
   {
-    path:"/user/account/login/",
-    name:"user_account_login",
-    component:UserAccountLoginView,
+    path: "/user/account/login/",
+    name: "user_account_login",
+    component: UserAccountLoginView,
   },
   {
-    path:"/user/account/register",
-    name:"user_account_register",
-    component:UserAccountRegisterView,
+    path: "/user/account/register/",
+    name: "user_account_register",
+    component: UserAccountRegisterView,
   },
   {
     path:"/404/",

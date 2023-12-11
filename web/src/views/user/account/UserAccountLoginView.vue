@@ -9,11 +9,9 @@
                     </div>
                     <div class="mb-3">
                             <label for="password" class="form-label">密码</label>
-                            <input v-model="password" type="password" class="form-control" id="username" placeholder="请输入密码">
+                            <input v-model="password" type="password" class="form-control" id="password" placeholder="请输入密码">
                     </div>
-                    <div class="error_message">
-                        {{error_message}}
-                    </div>
+                    <div class="error-message">{{error_message}}</div>
                     <button type="submit" class="btn btn-primary">提交</button>
                 </form>
             </div>
@@ -23,7 +21,7 @@
 
 <script>
 import ContentField from "../../../components/ContentField.vue"
-import {userStore} from "vuex"
+import {useStore} from "vuex"
 import {ref} from "vue"
 import router from "@/router"
 
@@ -31,27 +29,27 @@ export default{
     components:{
         ContentField,
     },
-    setup(){
-        const store =userStore();
+    setup() {
+        const store = useStore();
         let username = ref('');
         let password = ref('');
         let error_message = ref('');
 
-        const login = () =>{
-            error_message.value="";
-            store.dispatch("login",{
-                username:username.value,
-                password:password.value,
-                success(){
-                    store.dispatch("getinfo",{
-                        success(){
-                            router.push({name:"home"});
+        const login = () => {
+            error_message.value = "";
+            store.dispatch("login", {
+                username: username.value,
+                password: password.value,
+                success() {
+                    store.dispatch("getinfo", {
+                        success() {
+                            router.push({ name: 'home' });
                             console.log(store.state.user);
                         }
-                    });
+                    })
                 },
-                error(){
-                    error_message.value="用户名或密码错误";
+                error() {
+                    error_message.value = "用户名或密码错误";
                 }
             })
         }
@@ -62,8 +60,8 @@ export default{
             error_message,
             login,
         }
-
     }
+
 }
 </script>
 
