@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface GetListService {
     List<Bot> getList();
+
 }
