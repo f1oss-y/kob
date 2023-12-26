@@ -13,7 +13,7 @@
             Win
         </div>
         <div class="result-board-btn">
-            <button @click="click_match_btn" type="button" class="btn btn-warning btn-lg">
+            <button @click="restart" type="button" class="btn btn-warning btn-lg">
                 再来!
             </button>
         </div>
@@ -28,7 +28,7 @@ export default{
 
         const restart = () =>{
             store.commit("updateStatus","matching");
-            store.commit("uodateLoser","none");
+            store.commit("updateLoser","none");
             store.commit("updateOpponent",{
                 username:"对手",
                 photo:"https://cdn.acwing.com/media/article/image/2022/08/09/1_1db2488f17-anonymous.png",
